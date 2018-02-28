@@ -1,0 +1,623 @@
+<?xml version="1.0" ?>
+<contents>
+  <product_flavors cmm_pf_var="PRODUCT_FLAVORS">
+    <pf>
+      <name>asic</name>
+      <component>
+        <name>common</name>
+        <flavor>asic</flavor>
+      </component>
+      <component>
+        <name>modem</name>
+        <flavor>asic</flavor>
+      </component>
+    </pf>
+  </product_flavors>
+  <product_info>
+    <product_name>MSM8937.LA.3.0</product_name>
+    <hlos_type cmm_var="HLOS_TYPE">LA</hlos_type>
+    <chipid cmm_var="CHIPID">msm8937</chipid>
+    <release_test_config>src</release_test_config>
+  </product_info>
+  <partition_info>
+    <partition fastboot_erase="true">modemst1</partition>
+    <partition fastboot_erase="true">modemst2</partition>
+    <partition fastboot_erase="true">fsg</partition>
+  </partition_info>
+  <builds_flat>
+    <build>
+      <name>common</name>
+      <role>common</role>
+      <chipset>msm8937</chipset>
+      <build_id>MSM8937.LA.3.0-00510-STD.PROD-2</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path>..\MSM8937.LA.3.0</windows_root_path>
+      <linux_root_path>../MSM8937.LA.3.0</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>common</image_dir>
+      <release_path/>
+      <download_file minimized="true" fastboot="modem">
+        <file_name>NON-HLOS.bin</file_name>
+        <file_path flavor="asic">common/build/bin/asic/</file_path>
+        <file_path>common/build/bin/asic/</file_path>
+      </download_file>
+      <download_file minimized="true">
+        <file_name>*.img</file_name>
+        <file_path flavor="asic">common/build/bin/asic/sparse_images/</file_path>
+      </download_file>
+      <download_file minimized="true">
+        <file_name>gpt_both0.bin</file_name>
+        <file_path>common/build/</file_path>
+      </download_file>
+      <partition_file>
+        <file_name>rawprogram_unsparse.xml</file_name>
+        <file_path flavor="asic">common/build/bin/asic/sparse_images/</file_path>
+      </partition_file>
+      <partition_patch_file>
+        <file_name>patch0.xml</file_name>
+        <file_path>common/build/</file_path>
+      </partition_patch_file>
+      <file_ref fat_file="true">
+        <file_name>*</file_name>
+        <file_path flavor="asic">common/build/bin/asic/pil_split_bins/</file_path>
+      </file_ref>
+      <download_file minimized="true" sec_dat="sec.dat">
+        <file_name>sec.dat</file_name>
+        <file_path>common/sectools/resources/build/fileversion2/</file_path>
+      </download_file>
+    </build>
+    <build>
+      <name>glue</name>
+      <role>glue</role>
+      <chipset>msm8937</chipset>
+      <build_id>GLUE.MSM8937_LA.1.1-00015-NOOP_TEST-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path>..\MSM8937.LA.3.0</windows_root_path>
+      <linux_root_path>../MSM8937.LA.3.0</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <release_path/>
+      <image_dir>common</image_dir>
+      <buildfile_path>echo/</buildfile_path>
+      <build_command>echo ./BuildProducts.txt &gt; BuildProducts.txt</build_command>
+    </build>
+    <build>
+      <name>apps</name>
+      <role>apps</role>
+      <chipset>msm8937</chipset>
+      <build_id>LA.UM.5.6.r1-06300-89xx.0-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="APPS_BUILDROOT">..\LA.UM.5.6</windows_root_path>
+      <linux_root_path cmm_root_path_var="APPS_BUILDROOT">../LA.UM.5.6</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>LINUX</image_dir>
+      <release_path/>
+      <download_file minimized="true" fastboot="true">
+        <file_name>boot.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </download_file>
+      <file_ref ignore="true" minimized="true">
+        <file_name>adb.exe</file_name>
+        <file_path>LINUX/android/vendor/qcom/proprietary/usb/host/windows/prebuilt/</file_path>
+      </file_ref>
+      <file_ref ignore="true" minimized="true">
+        <file_name>AdbWinApi.dll</file_name>
+        <file_path>LINUX/android/vendor/qcom/proprietary/usb/host/windows/prebuilt/</file_path>
+      </file_ref>
+      <file_ref ignore="true" minimized="true">
+        <file_name>fastboot.exe </file_name>
+        <file_path>LINUX/android/vendor/qcom/proprietary/usb/host/windows/prebuilt/</file_path>
+      </file_ref>
+      <file_ref sparse_image_path="true" minimized="true" fastboot="true">
+        <file_name>recovery.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </file_ref>
+      <file_ref sparse_image_path="true" minimized="true" fastboot="true">
+        <file_name>system.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </file_ref>
+      <file_ref sparse_image_path="true" minimized="true" fastboot="true">
+        <file_name>cache.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </file_ref>
+      <file_ref sparse_image_path="true" minimized="true" fastboot="true">
+        <file_name>persist.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </file_ref>
+      <file_ref sparse_image_path="true" minimized="true" fastboot="true">
+        <file_name>userdata.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </file_ref>
+      <download_file cmm_file_var="APPSBOOT_BINARY" fastboot_complete="aboot" minimized="true">
+        <file_name>emmc_appsboot.mbn</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </download_file>
+      <download_file cmm_file_var="APPSBOOT_ELF" minimized="true">
+        <file_name>lk</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/obj/EMMC_BOOTLOADER_OBJ/build-msm8952/</file_path>
+      </download_file>
+      <download_file cmm_file_var="APPS_ELF" minimized="true">
+        <file_name>vmlinux</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/obj/KERNEL_OBJ/</file_path>
+      </download_file>
+      <download_file cmm_file_var="APPS_BINARY" minimized="true">
+        <file_name>vmlinux</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/obj/KERNEL_OBJ/</file_path>
+      </download_file>
+      <download_file minimized="true" fastboot="true">
+        <file_name>mdtp.img</file_name>
+        <file_path>LINUX/android/out/target/product/msm8937_64/</file_path>
+      </download_file>
+      <buildfile_path>./</buildfile_path>
+      <build_command>create_BuildProducts ./create_BuildProducts</build_command>
+    </build>
+    <build>
+      <name>video</name>
+      <role>video</role>
+      <chipset>msm8937</chipset>
+      <build_id>VIDEO.VE_ULT.3.1-00030-PROD-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="VENUS_BUILDROOT">..\VIDEO.VE_ULT.3.1</windows_root_path>
+      <linux_root_path cmm_root_path_var="VENUS_BUILDROOT">../VIDEO.VE_ULT.3.1</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>venus_proc</image_dir>
+      <release_path>HK11</release_path>
+      <download_file cmm_file_var="VENUS_BINARY" pil_split="venus" minimized="true">
+        <file_name>venus.mbn</file_name>
+        <file_path>venus_proc/build/bsp/asic/build/PROD/mbn/reloc/signed/</file_path>
+      </download_file>
+      <buildfile_path>build_prod.cmd/</buildfile_path>
+      <build_command>build_prod.cmd build_prod.cmd</build_command>
+    </build>
+    <build>
+      <name>modem</name>
+      <role>modem</role>
+      <chipset>msm8937</chipset>
+      <build_id>MPSS.JO.3.0-00395-8937_GENNS_PACK-1</build_id>
+      <short_build_path cmm_var="MODEM_BUILDID">8937.genns.prod</short_build_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="MPSS_BUILDROOT">..\MPSS.JO.3.0</windows_root_path>
+      <linux_root_path cmm_root_path_var="MPSS_BUILDROOT">../MPSS.JO.3.0</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>modem_proc</image_dir>
+      <release_path type="src">PCT/SRC</release_path>
+      <release_path type="bin">BIN</release_path>
+      <file_ref fat_file="true">
+        <file_name>mba.mbn</file_name>
+        <file_path>modem_proc/build/ms/bin/8937.genns.prod</file_path>
+      </file_ref>
+      <file_ref fat_file="true" sub_dir="true">
+        <file_name>*</file_name>
+        <file_path>modem_proc/mcfg/configs/</file_path>
+      </file_ref>
+      <file_ref pil_split="modem">
+        <file_name>qdsp6sw.mbn</file_name>
+        <file_path flavor="asic">modem_proc/build/ms/bin/8937.genns.prod</file_path>
+      </file_ref>
+      <file_ref symbol="modem" minimized="true">
+        <file_name>M89378937.genns.prodQ*.elf</file_name>
+        <file_path>modem_proc/build/ms/</file_path>
+      </file_ref>
+      <file_ref debug_script="load_coredump">
+        <file_name>load_coredump.cmm</file_name>
+        <file_path>modem_proc/core/debugtools/err/cmm</file_path>
+      </file_ref>
+      <file_ref debug_script="recover_f3_messages">
+        <file_name>recover_f3.cmm</file_name>
+        <file_path>modem_proc/core/services/diag/f3_trace/cmm</file_path>
+      </file_ref>
+      <file_ref ignore="true" debug_script="recover_smem_messages">
+        <file_name>smemlog.cmm</file_name>
+        <file_path>modem_proc/core/mproc/smem/tools</file_path>
+      </file_ref>
+      <file_ref debug_script="recover_ulog_dumps">
+        <file_name>ULogDump.cmm</file_name>
+        <file_path>modem_proc/core/power/ulog/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="recover_npa_dumps">
+        <file_name>NPADump.cmm</file_name>
+        <file_path>modem_proc/core/power/npa/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="analyze_qurt_kernel_error_info">
+        <file_name>analy_qurt_error.cmm</file_name>
+        <file_path>modem_proc/core/kernel/qurt/scripts</file_path>
+      </file_ref>
+      <file_ref ignore="true" debug_script="parse_smem_messages">
+        <file_name>smem_log.pl</file_name>
+        <file_path>modem_proc/core/mproc/smem/tools</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>*</file_name>
+        <file_path>modem_proc/rfnv/etc/</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>*</file_name>
+        <file_path>modem_proc/rftarget_jolokia/</file_path>
+      </file_ref>
+      <download_file cmm_file_var="MBA_BINARY" minimized="true">
+        <file_name>mba.mbn</file_name>
+        <file_path>modem_proc/build/ms/bin/8937.genns.prod/</file_path>
+      </download_file>
+      <download_file cmm_file_var="MPSS_BINARY" minimized="true">
+        <file_name>qdsp6sw.mbn</file_name>
+        <file_path>modem_proc/build/ms/bin/8937.genns.prod/</file_path>
+      </download_file>
+      <buildfile_path>modem_proc/build/ms/</buildfile_path>
+      <build_command>build_client.py 8937_ALL_PACK bparams=-k</build_command>
+    </build>
+    <build>
+      <name>cpe</name>
+      <role>cpe</role>
+      <chipset>msm8937</chipset>
+      <build_id>CPE.TSF.1.0-00035-W9335AAAAAAAZQ-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="CPE_BUILDROOT">..\CPE.TSF.1.0</windows_root_path>
+      <linux_root_path cmm_root_path_var="CPE_BUILDROOT">../CPE.TSF.1.0</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>cpe_proc</image_dir>
+      <release_path>HK11</release_path>
+      <file_ref cmm_file_var="CPE_BINARY" pil_split="cpe_9335" minimized="true">
+        <file_name>cpe_9335.mbn</file_name>
+        <file_path>cpe_proc/build/ms/bin/AAAAAAAA*/</file_path>
+      </file_ref>
+      <buildfile_path>python/</buildfile_path>
+      <build_command>python cpe_proc/build/build.py -c wcd9335 --pkg --hy22</build_command>
+    </build>
+    <build>
+      <name>adsp</name>
+      <role>adsp</role>
+      <chipset>msm8937</chipset>
+      <build_id>ADSP.8953.2.8.2-00067-00000-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="ADSP_BUILDROOT">..\ADSP.8953.2.8.2</windows_root_path>
+      <linux_root_path cmm_root_path_var="ADSP_BUILDROOT">../ADSP.8953.2.8.2</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>adsp_proc</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <file_ref cmm_file_var="ADSP_BINARY" pil_split="adsp" minimized="true">
+        <file_name>adsp.mbn</file_name>
+        <file_path>adsp_proc/obj/8937/signed/</file_path>
+      </file_ref>
+      <download_file minimized="true" fastboot="dsp">
+        <file_name>adspso.bin</file_name>
+        <file_path>adsp_proc/build/dynamic_signed/8937/</file_path>
+      </download_file>
+      <buildfile_path>python/</buildfile_path>
+      <build_command>python ./adsp_proc/build/build.py -k -c msm8953 -o all &amp;&amp; python ./adsp_proc/build/build.py -k -c msm8937  -o all</build_command>
+    </build>
+    <build>
+      <name>boot</name>
+      <role>boot</role>
+      <chipset>msm8937</chipset>
+      <build_id>BOOT.BF.3.3-00221-M8917LAAAANAZB-1</build_id>
+      <short_build_path cmm_var="BOOT_BUILDID">FAASANAZ</short_build_path>
+      <short_build_path cmm_var="DEVPROG_ID">FAADANAZ</short_build_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="BOOT_BUILDROOT">..\BOOT.BF.3.3</windows_root_path>
+      <linux_root_path cmm_root_path_var="BOOT_BUILDROOT">../BOOT.BF.3.3</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>boot_images</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <device_programmer minimized="true">
+        <file_name>prog_emmc_firehose_8937_ddr.mbn</file_name>
+        <file_path>boot_images/build/ms/bin/FAADANAZ/</file_path>
+      </device_programmer>
+      <device_programmer_lite minimized="true">
+        <file_name>prog_emmc_firehose_8937_lite.mbn</file_name>
+        <file_path>boot_images/build/ms/bin/FAADANAZ/</file_path>
+      </device_programmer_lite>
+      <device_programmer_vip minimized="true">
+        <file_name>validated_emmc_firehose_8937_ddr.mbn</file_name>
+        <file_path>boot_images/build/ms/bin/FAADANAZ/</file_path>
+      </device_programmer_vip>
+      <device_programmer_vip_lite minimized="true">
+        <file_name>validated_emmc_firehose_8937_lite.mbn</file_name>
+        <file_path>boot_images/build/ms/bin/FAADANAZ/</file_path>
+      </device_programmer_vip_lite>
+      <download_file cmm_file_var="BOOT_BINARY" fastboot_complete="true" minimized="true">
+        <file_name>sbl1.mbn</file_name>
+        <file_path>boot_images/build/ms/bin/FAASANAZ/</file_path>
+      </download_file>
+      <file_ref minimized="true">
+        <file_name>*</file_name>
+        <file_path>boot_images/core/storage/tools/ptool/</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>jsdcc.elf</file_name>
+        <file_path>boot_images/core/storage/tools/jsdcc/</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>mjsdload.cmm</file_name>
+        <file_path>boot_images/core/storage/tools/jsdcc/</file_path>
+      </file_ref>
+      <file_ref ignore="true" minimized="true">
+        <file_name>morko_pmic_wr_2.emm</file_name>
+        <file_path>boot_images/modem/rfa/pmic/target/common/system/test/T32/</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>hwio.cmm</file_name>
+        <file_path>boot_images/core/systemdrivers/hwio/scripts/msm8937/</file_path>
+      </file_ref>
+      <buildfile_path>boot_images/build/ms/</buildfile_path>
+      <build_command>cleanpack.sh 8937_8917_8953</build_command>
+    </build>
+    <build>
+      <name>tz</name>
+      <role>tz</role>
+      <chipset>msm8937</chipset>
+      <build_id>TZ.BF.4.0.5-00049-M8937AAAAANAZT-1</build_id>
+      <short_build_path cmm_var="TZ_BUILDID">ZALAANAA</short_build_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="TZ_BUILDROOT">..\TZ.BF.4.0.5</windows_root_path>
+      <linux_root_path cmm_root_path_var="TZ_BUILDROOT">../TZ.BF.4.0.5</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>trustzone_images</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <download_file cmm_file_var="QSEE_BINARY" fastboot_complete="true" minimized="true">
+        <file_name>tz.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </download_file>
+      <file_ref pil_split="smplap32">
+        <file_name>smplap32.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="smplap64">
+        <file_name>smplap64.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="widevine">
+        <file_name>widevine.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="isdbtmm">
+        <file_name>isdbtmm.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="securemm">
+        <file_name>securemm.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="gptest">
+        <file_name>gptest.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="dhsecapp">
+        <file_name>dhsecapp.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="qmpsecap">
+        <file_name>qmpsecap.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="cppf">
+        <file_name>cppf.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="fingerprint">
+        <file_name>fingerprint.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="fingerprint64">
+        <file_name>fingerprint64.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref pil_split="mdtp">
+        <file_name>mdtp.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <download_file cmm_file_var="DEVCFG_BINARY" fastboot_complete="true" minimized="true">
+        <file_name>devcfg.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </download_file>
+      <download_file cmm_file_var="KEYMASTER_BINARY" fastboot_complete="true" minimized="true">
+        <file_name>keymaster.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </download_file>
+      <download_file cmm_file_var="CMNLIB_BINARY" pil_split="cmnlib" fastboot_complete="true" minimized="true">
+        <file_name>cmnlib.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </download_file>
+      <download_file cmm_file_var="CMNLIB64_BINARY" pil_split="cmnlib64" fastboot_complete="true" minimized="true">
+        <file_name>cmnlib64.mbn</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </download_file>
+      <file_ref minimized="true">
+        <file_name>*</file_name>
+        <file_path>trustzone_images/build/ms/bin/ZALAANAA/</file_path>
+      </file_ref>
+      <file_ref minimized="true">
+        <file_name>errorCodesDict.txt</file_name>
+        <file_path>trustzone_images/core/bsp/qsee/</file_path>
+      </file_ref>
+      <buildfile_path>trustzone_images/build/ms/</buildfile_path>
+      <build_command>cleanpack_8937_8953.sh trustzone_images/build/ms/cleanpack_8937_8953.sh</build_command>
+    </build>
+    <build>
+      <name>rpm</name>
+      <role>rpm</role>
+      <chipset>msm8937</chipset>
+      <build_id>RPM.BF.2.2-00218-M8937AAAAANAZR-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="RPM_BUILDROOT">..\RPM.BF.2.2</windows_root_path>
+      <linux_root_path cmm_root_path_var="RPM_BUILDROOT">../RPM.BF.2.2</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>rpm_proc</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <download_file cmm_file_var="RPM_BINARY" fastboot_complete="true" minimized="true">
+        <file_name>rpm.mbn</file_name>
+        <file_path>rpm_proc/build/ms/bin/8937/</file_path>
+      </download_file>
+      <file_ref debug_script="recover_ulog_dumps">
+        <file_name>rpm_ulogdump.cmm</file_name>
+        <file_path>rpm_proc/core/power/ulog/scripts</file_path>
+      </file_ref>
+      <file_ref ignore="true" debug_script="parse_merged_logs">
+        <file_name>rpm_log.py</file_name>
+        <file_path>rpm_proc/core/power/rpm/dal/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="parse_merged_logs">
+        <file_name>rpm_log_bfam.py</file_name>
+        <file_path>rpm_proc/core/power/rpm/debug/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="std_extensions" minimized="true">
+        <file_name>std_extensions.cmm</file_name>
+        <file_path>rpm_proc/core/products/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="std_toolsconfig" minimized="true">
+        <file_name>std_toolsconfig.cmm</file_name>
+        <file_path>rpm_proc/core/products/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="std_scripts" minimized="true">
+        <file_name>std_scripts.men</file_name>
+        <file_path>rpm_proc/core/products/scripts</file_path>
+      </file_ref>
+      <file_ref debug_script="recover_npa_dumps">
+        <file_name>rpm_npadump.cmm</file_name>
+        <file_path>rpm_proc/core/power/npa/scripts</file_path>
+      </file_ref>
+      <download_file cmm_file_var="RPM_ELF" minimized="true">
+        <file_name>RPM_AAAAANAAR.elf</file_name>
+        <file_path>rpm_proc/core/bsp/rpm/build/8937/</file_path>
+      </download_file>
+      <buildfile_path>rpm_proc/build/</buildfile_path>
+      <build_command>build_packed.bat 8937</build_command>
+    </build>
+    <build>
+      <name>wcnss</name>
+      <role>wcnss</role>
+      <chipset>msm8937</chipset>
+      <build_id>CNSS.PR.4.0-00422-M8953BAAAANAZW-1</build_id>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 start -->
+      <windows_root_path cmm_root_path_var="WCNSS_BUILDROOT">..\CNSS.PR.4.0</windows_root_path>
+      <linux_root_path cmm_root_path_var="WCNSS_BUILDROOT">../CNSS.PR.4.0</linux_root_path>
+      <!-- zhangheting@wind-mobi.com modify build env 20171023 end -->
+      <image_dir>wcnss_proc</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <file_ref pil_split="wcnss">
+        <file_name>wcnss.mbn</file_name>
+        <file_path>wcnss_proc/build/ms/bin/8937/reloc</file_path>
+      </file_ref>
+      <download_file cmm_file_var="WCNSS_BINARY" minimized="true">
+        <file_name>wcnss.mbn</file_name>
+        <file_path>wcnss_proc/build/ms/bin/8937/reloc</file_path>
+      </download_file>
+      <download_file cmm_file_var="WCNSS_ELF" minimized="true">
+        <file_name>8937_PRONTO_MR.elf</file_name>
+        <file_path>wcnss_proc/build/ms/</file_path>
+      </download_file>
+      <buildfile_path>cd/</buildfile_path>
+      <build_command>cd ./wcnss_proc/Pronto/bsp/build/; source ./wcnss_build.sh 8953 pronto --buildspec=klocwork BUILD_ID=SCAQNAZ USES_FLAGS=USES_NO_STRIP_NO_ODM BUILD_VER=CNSS-PR-4-0-00422 &amp;&amp; source ./wcnss_build.sh 8937 pronto --buildspec=klocwork BUILD_ID=SCAQJAZ USES_FLAGS=USES_NO_STRIP_NO_ODM BUILD_VER=CNSS-PR-4-0-00422 &amp;&amp; source ./wcnss_build.sh 8937 pronto --buildspec=klocwork BUILD_ID=SCAQRAZ USES_FLAGS=USES_NO_STRIP_NO_ODM BUILD_VER=CNSS-PR-4-0-00422 &amp;&amp; source ./wcnss_build.sh 8916_COEX pronto --buildspec=klocwork BUILD_ID=SCAQBAZ USES_FLAGS=USES_NO_STRIP_NO_ODM BUILD_VER=CNSS-PR-4-0-00422 &amp;&amp; source ./wcnss_build.sh 8909_MR pronto --buildspec=klocwork BUILD_ID=SCAQMAZ USES_FLAGS=USES_NO_STRIP_NO_ODM BUILD_VER=CNSS-PR-4-0-00422</build_command>
+    </build>
+<!-- zhangheting@wind-mobi.com rem start -->
+<!-- <build>
+      <name>wapi</name>
+      <role>wapi</role>
+      <chipset>msm8937</chipset>
+      <build_id>WLAN.ADDON_PR.3.0-00004-M8953BAAAANAZW-1</build_id>
+      <windows_root_path cmm_root_path_var="WAPI_BUILDROOT">..\WLAN.ADDON_PR.3.0</windows_root_path>
+      <linux_root_path cmm_root_path_var="WAPI_BUILDROOT">../WLAN.ADDON_PR.3.0</linux_root_path>
+      <image_dir>addon</image_dir>
+      <release_path>HY11_CompileTest</release_path>
+      <buildfile_path>cd/</buildfile_path>
+      <build_command>cd ./addon/build_wapi; source ./build.sh</build_command>
+    </build> -->
+<!-- zhangheting@wind-mobi.com rem end -->
+  </builds_flat>
+  <build_tools>
+    
+  </build_tools>
+  <external_tools>
+    <tool>
+      <name>trace32</name>
+      <version>TBD</version>
+      <path>TBD</path>
+    </tool>
+    <tool>
+      <name>qpst</name>
+      <version>TBD</version>
+      <path>TBD</path>
+    </tool>
+    <tool>
+      <name>qxdm</name>
+      <version>TBD</version>
+      <path>TBD</path>
+    </tool>
+  </external_tools>
+  <workflow>
+    <tool>
+      <name>fatgen.py</name>
+      <build>boot</build>
+      <path>boot_images/core/storage/tools/fattool/</path>
+    </tool>
+    <tool>
+      <name>fatadd.py</name>
+      <build>boot</build>
+      <path>boot_images/core/storage/tools/fattool/</path>
+    </tool>
+    <tool>
+      <name>msp</name>
+      <build>boot</build>
+      <path>boot_images/core/storage/tools/ptool/</path>
+    </tool>
+    <tool>
+      <name>checksparse.py</name>
+      <build>boot</build>
+      <path>boot_images/core/storage/tools/ptool/</path>
+    </tool>
+    <tool>
+      <name>ptool.py</name>
+      <build>boot</build>
+      <path>boot_images/core/storage/tools/ptool/</path>
+    </tool>
+    <tool>
+      <name>pil-splitter.py</name>
+      <build>common</build>
+      <path>./common/config/misc/</path>
+    </tool>
+    <tool>
+      <name>fat_creation.py</name>
+      <build>common</build>
+      <path>./common/build/app</path>
+    </tool>
+    <step type="exec">
+      <params>python @tool_name @src_file @destn_dir + @src_file_var</params>
+      <tool_name>pil-splitter.py</tool_name>
+      <src_file_vars>$[attribute:pil_split]</src_file_vars>
+      <destn_dir>./bin/$[flavor:.]/pil_split_bins</destn_dir>
+    </step>
+    <step filter="non_hlos" type="delete">
+      <destn>./bin/$[flavor:.]/NON-HLOS.bin</destn>
+    </step>
+    <step filter="non_hlos" type="exec">
+      <params>python @tool_name -a @attributes -c @destn --ps @partition_size -f $[flavor:.] --fatgen @fatgen_loc --fatadd @fatadd_loc</params>
+      <tool_name>fat_creation.py</tool_name>
+      <attributes>&quot;fat_file&quot;</attributes>
+      <destn>./bin/$[flavor:.]/NON-HLOS.bin</destn>
+      <partition_size>@getModemPartitionSize(&quot;./../config/partition.xml&quot;)</partition_size>
+      <fatgen_loc>@root_dir + boot_images/core/storage/tools/fattool/fatgen.py</fatgen_loc>
+      <fatadd_loc>@root_dir + boot_images/core/storage/tools/fattool/fatadd.py</fatadd_loc>
+      <root_dir>$[build:boot]</root_dir>
+    </step>
+    <step filter="non_hlos" type="exec">
+      <params>python @tool_name -n @destn -f @src_file -d verinfo</params>
+      <tool_name>fatadd.py</tool_name>
+      <destn>./bin/$[flavor:.]/NON-HLOS.bin</destn>
+      <src_files>./Ver_Info.txt</src_files>
+    </step>
+    <step type="exec">
+      <exec_dir>./</exec_dir>
+      <params>python @tool_name -x ./../config/partition.xml</params>
+      <tool_name>ptool.py</tool_name>
+    </step>
+    <step filter="hlos" type="exec">
+      <exec_dir>./bin/$[flavor:.]/sparse_images</exec_dir>
+      <params>python @tool_name -i @rawprogram_xml -s @root_dir + @sparse_dir -o rawprogram_unsparse.xml</params>
+      <tool_name>checksparse.py</tool_name>
+      <root_dir>$[build:apps]</root_dir>
+      <sparse_dir>LINUX/android/out/target/product/msm8937_64/</sparse_dir>
+      <rawprogram_xml>./../../../rawprogram0.xml</rawprogram_xml>
+    </step>
+  </workflow>
+  <builds_nested>
+    
+  </builds_nested>
+</contents>

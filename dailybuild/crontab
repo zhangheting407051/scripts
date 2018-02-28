@@ -1,0 +1,3 @@
+# m h  dom mon dow   command
+0 1 * * * /home1/zhangheting/DailyBuildSW1/DailyBuild_A158.sh all
+0 0 * * * /home1/zhangheting/DailyBuildSW1/deletecode_A158.sh
